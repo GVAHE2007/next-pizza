@@ -1,3 +1,5 @@
+export { DualRangeSlider } from "./dual-slider";
+
 export { Button } from "./button";
 export { Card } from "./card";
 export { Checkbox } from "./checkbox";

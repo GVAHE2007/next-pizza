@@ -10,7 +10,7 @@ export default function Home() {
       <Header title={""} />
       <TopBar />
       <Container>
-        <Filter />
+        <Filter className="max-w-[245px]" />
       </Container>
     </>
   );
