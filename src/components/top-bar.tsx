@@ -10,7 +10,7 @@ interface Props {
 }
 const items = [
     {
-        name: "Все",
+        name: "Пиццы",
 
     },
     {
@@ -41,7 +41,7 @@ const items = [
 export const TopBar: React.FC<Props> = (props) => {
     const { className } = props;
     return (
-        <Container className={cn("flex justify-between", className)}>
+        <Container className={cn(" sticky top-2 flex justify-between", className)}>
 
             <Categories items={items} />
             <SortPopup />

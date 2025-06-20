@@ -17,8 +17,8 @@ export const Filter: React.FC<Props> = (props) => {
     const { className } = props;
     const [prices, setPrices] = React.useState([0, 5000])
     return (
-        <div className={cn("flex flex-col gap-5 mt-[50px]", className)}>
-            {/* <h2>Филтрация</h2> */}
+        <div className={cn("flex flex-col gap-5 ", className)}>
+
             <Title size={'m'}>
                 Филтрация
             </Title>

@@ -7,7 +7,7 @@ import { Container } from './container';
 
 interface Props {
     className?: string;
-    title: string;
+
 
 }
 

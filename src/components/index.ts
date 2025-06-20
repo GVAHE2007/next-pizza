@@ -1,3 +1,6 @@
+export { Card } from "./card";
+export { Catalog } from "./catalog";
+
 export { FilterPrice } from "./filter-price";
 
 export { Title } from "./title";
