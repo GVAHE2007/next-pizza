@@ -5,15 +5,17 @@ import { Checkbox } from './ui';
 interface Props {
     className?: string;
     name: string;
+    setSelected: () => void;
+    selected: boolean;
 
 }
 
 export const FilterChekbox: React.FC<Props> = (props) => {
-    const { className, name } = props;
+    const { className, name, selected, setSelected } = props;
     return (
         <label className={cn("flex gap-2 items-center", className)}>
 
-            <Checkbox />
+            <Checkbox onCheckedChange={setSelected} checked={selected} />
 
             {name}
 

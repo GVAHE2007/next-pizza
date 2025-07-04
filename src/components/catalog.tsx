@@ -7,19 +7,21 @@ import { Card } from './card';
 import { useIntersection } from 'react-use';
 import { useCategoryStore } from '@/store/category';
 
+import { ProductRelation } from '@/@types/prisma';
+
 interface Props {
     className?: string;
-    items: any[];
+    items: ProductRelation[];
     title: string;
     id: number;
 }
 
 export const Catalog: React.FC<Props> = (props) => {
     const { className, items, title, id } = props;
-    const intersectionRef = React.useRef(null);
-    const intersection = useIntersection(intersectionRef, {
+    const intersectionRef = React.useRef<HTMLDivElement | null>(null);
+    const intersection = useIntersection(intersectionRef as React.RefObject<HTMLElement>, {
 
-        threshold: 0.5
+        threshold: 0.4
     });
 
     const setActiveCategory = useCategoryStore(state => state.setActiveCategory)
@@ -31,23 +33,15 @@ export const Catalog: React.FC<Props> = (props) => {
 
     }, [intersection?.isIntersecting])
     return (
-        <div className={className} ref={intersectionRef} id={title}>
-            <Title size={'l'}>
+        <div className={cn("", className)} ref={intersectionRef} id={title}>
+            <Title size={'l'} className='mt-20 ml-10'>
                 {title}
             </Title>
             <ul className="grid grid-cols-3">
                 {
                     items.map(el => (
                         <li key={el.id}>
-                            <Card title={'Сырный цыпленок'} imgUrl={'/cheese.png'} text={[
-                                { name: "Цыпленок" },
-                                { name: "моцарелла" },
-                                { name: "сыры чеддер и пармезан" },
-                                { name: "сырный соус" },
-                                { name: "томаты" },
-                                { name: "соус альфредо" },
-                                { name: "чеснок" }
-                            ]} price={395} />
+                            <Card className='ml-10' title={el.name} imgUrl={el.imgUrl} text={el.ingredients} price={el.variants[0]?.price} />
                         </li>
                     ))
                 }

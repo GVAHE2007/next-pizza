@@ -1,3 +1,5 @@
+export { SearchHeader } from "./search-header";
+
 export { Card } from "./card";
 export { Catalog } from "./catalog";
 
@@ -21,4 +23,5 @@ export { Container } from "./container";
 export { Search } from "./search";
 export { Header } from "./header";
 export { Logo } from "./logo";
+
 
