@@ -1,3 +1,5 @@
+export { Modal } from "./modal";
+
 export { SearchHeader } from "./search-header";
 
 export { Card } from "./card";

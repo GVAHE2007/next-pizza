@@ -11,20 +11,19 @@ const nunito = Nunito({
 
 
 
-export const metadata: Metadata = {
-  title: "Next Pizza",
-  description: "лутие в мире",
-};
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`${nunito.className}`} >
         {children}
+
       </body>
     </html>
   );
