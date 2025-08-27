@@ -8,8 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "@/constants/form/register-form-schema";
 import { RegisterFormSchema } from "@/@types/form";
 import toast from "react-hot-toast";
-import { registerProfile } from "@/app/actions/register-profile";
+import { updateProfile } from "@/app/actions/update-profile";
 import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 
 interface Props {
   className?: string;
@@ -30,11 +31,11 @@ export const FormProfile: React.FC<Props> = (props) => {
 
   const onSubmit = async (data: RegisterFormSchema) => {
     try {
-      await registerProfile(data);
-      toast.success("good register");
+      await updateProfile(data);
+      toast.success("good update");
     } catch (error) {
       console.log(error);
-      toast.error("bad register");
+      toast.error("bad update");
     }
   };
 
@@ -52,7 +53,10 @@ export const FormProfile: React.FC<Props> = (props) => {
           label="Confirm Password"
           type="password"
         />
-        <Button type="submit">Update</Button>
+        <div className="flex items-center gap-5">
+          <Button type="submit">Update</Button>
+          <Button type="button" variant="secondary" onClick={async () => await signOut({ callbackUrl: "/" })}>Sign Out</Button>
+        </div>
       </form>
     </FormProvider>
   );
