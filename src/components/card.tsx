@@ -32,7 +32,8 @@ export const Card: React.FC<Props> = (props) => {
                 <p> {text.map((el) => el.name).join(",")}</p>
                 <div className='flex gap-5'>
                     <span>от {price} ₽</span>
-                    <Button className=''>
+
+                    <Button variant={"outline"} className=''>
                         <Plus /> Добавить
                     </Button>
                 </div>
