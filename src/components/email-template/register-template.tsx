@@ -7,6 +7,6 @@ interface Props {
 export const RegisterTemplate: React.FC<Props> = ({ code }) => (
   <div>
     <h2>Потдвердите Аккаунт</h2>
-    <a href={`http://localhost:3000/api/auth/verify?code=${code}`}>link to</a>
+    <a href={`https://next-pizza-pi-sooty.vercel.app/api/auth/verify?code=${code}`}>link to</a>
   </div>
 );
