@@ -52,7 +52,7 @@ export const SearchHeader: React.FC<Props> = (props) => {
                     <ul className='absolute w-full bg-white p-2 rounded-2xl '>
                         {
                             products.map((el) => (
-                                <li className='hover:bg-primary/50 rounded-1xl'>
+                                <li key={el.id} className='hover:bg-primary/50 rounded-1xl'>
                                     <Link className='flex items-center gap-2 ' href={`/product/${el.id}`} >
                                         <img src={el.imgUrl} alt={el.name} width={40} height={40} />{el.name}
                                     </Link>

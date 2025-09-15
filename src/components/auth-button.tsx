@@ -13,7 +13,7 @@ interface Props {
 export const AuthButton: React.FC<Props> = (props) => {
   const { className } = props;
   const user = useSession();
-  console.log(user);
+  console.log(user.data?.user);
 
   if (user.data?.user?.email) {
     return (

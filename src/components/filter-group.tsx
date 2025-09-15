@@ -9,12 +9,16 @@ import { Search } from './search';
 
 interface Props {
     className?: string;
-    items: any[];
+    items: Item[];
     limit?: number;
     title: string;
-    setSelected: (value: number) => void;
-    selected: Set<number>;
+    setSelected: (value: string) => void;
+    selected: Set<string>;
 
+}
+interface Item {
+    name: string;
+    value: number | string;
 }
 
 export const FilterGroup: React.FC<Props> = (props) => {
@@ -41,7 +45,7 @@ export const FilterGroup: React.FC<Props> = (props) => {
             <ul>
                 {limitItems.map((el) => (
                     <li key={el.value}>
-                        <FilterChekbox name={el.name} setSelected={() => setSelected(el.value)} selected={selected.has(el.value)} />
+                        <FilterChekbox name={el.name} setSelected={() => setSelected(el.value as string)} selected={selected.has(el.value as string)} />
 
                     </li>
                 ))}

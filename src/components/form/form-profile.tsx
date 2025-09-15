@@ -15,10 +15,11 @@ import { signOut } from "next-auth/react";
 interface Props {
   className?: string;
   user?: User
+  children?: React.ReactNode
 }
 
 export const FormProfile: React.FC<Props> = (props) => {
-  const { className, user } = props;
+  const { className, user, children } = props;
   const form = useForm({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -41,6 +42,7 @@ export const FormProfile: React.FC<Props> = (props) => {
 
   return (
     <FormProvider {...form}>
+      {children}
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn("", className)}
@@ -58,6 +60,7 @@ export const FormProfile: React.FC<Props> = (props) => {
           <Button type="button" variant="secondary" onClick={async () => await signOut({ callbackUrl: "/" })}>Sign Out</Button>
         </div>
       </form>
+
     </FormProvider>
   );
 };

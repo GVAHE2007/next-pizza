@@ -1,10 +1,10 @@
 "use client"
 import React from 'react';
-import { cn } from '@/lib/utils';
-import { Button, Card } from '../ui';
+
+import { Card } from '../ui';
 import { CardContent, CardHeader, CardTitle } from '../ui/card';
 import { FormInput } from '../form/form-input';
-import { Trash2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface Props {
     className?: string;
@@ -15,7 +15,7 @@ export const CheckoutInfo: React.FC<Props> = (props) => {
 
     return (
 
-        <Card className="w-full">
+        <Card className={cn("w-full", className)}>
             <CardHeader>
                 <CardTitle className="flex justify-between">
                     <span>2. Персональная информация</span>

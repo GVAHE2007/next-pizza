@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const BasketCard: React.FC<Props> = (props) => {
-    const { className, count, decrement, increment, remove, imgUrl, title, detalis, price, isCheckout } = props;
+    const { className, count, decrement, increment, remove, imgUrl, title, detalis, price } = props;
     const [loading, setLoading] = React.useState(false)
     const deleteProduct = async () => {
         setLoading(true)

@@ -22,7 +22,7 @@ export const Modal: React.FC<Props> = (props) => {
     const router = useRouter()
     return (
         <Dialog open={!!product} onOpenChange={() => router.back()}>
-            <DialogContent className='sm:max-w-[1200px] z-100'>
+            <DialogContent className={cn('sm:max-w-[1200px] z-100', className)}>
                 <DialogTitle />
                 <Product product={product} />
             </DialogContent>

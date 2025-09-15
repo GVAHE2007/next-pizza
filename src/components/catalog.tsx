@@ -8,7 +8,7 @@ import { useIntersection } from 'react-use';
 import { useCategoryStore } from '@/store/category';
 
 import { ProductRelation } from '@/@types/prisma';
-import { pizzaSizes, pizzatypes } from '@/constants/pizza';
+
 
 
 interface Props {

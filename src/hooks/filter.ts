@@ -23,7 +23,7 @@ interface ReturnProps extends Filter {
 export const useFilter = (): ReturnProps => {
   const searchParams = useSearchParams();
   // console.dir(searchParams.get("size")?.split(","))
-  const [prices, setPrices] = React.useState([0, 5000]);
+  const [prices, setPrices] = React.useState<number[]>([]);
   // const updatePrice = (name: keyof PriceProps, value: number) => {
   //     return {
   //         [name]: value,

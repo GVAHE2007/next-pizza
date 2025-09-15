@@ -105,7 +105,7 @@ async function create() {
     ],
   });
 
-  const basket = await prisma.cart.createMany({
+  await prisma.cart.createMany({
     data: [
       {
         token: "12345",
@@ -120,7 +120,7 @@ async function create() {
     ],
   });
 
-  const basketProduct = await prisma.cartProduct.create({
+  await prisma.cartProduct.create({
     data: {
       quantity: 2,
       cartId: 1,

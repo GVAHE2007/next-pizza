@@ -1,14 +1,15 @@
 import { updateBasketTotalAmount } from "@/lib/update-basket-total-amount";
 import { prisma } from "@/prisma/prizma-client";
 import { NextRequest, NextResponse } from "next/server";
+import { PageProps } from "@/@types/params"
 
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: PageProps
 ) {
     try {
         const token = req.cookies.get("basketToken")?.value;
-        const { id } = params;
+        const id = Number((await params).id);
 
         if (!token) {
             return NextResponse.json({ message: "Token not found" }, { status: 404 });
@@ -56,11 +57,11 @@ export async function DELETE(
 }
 
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, { params }: PageProps) {
 
     try {
         const token = req.cookies.get("basketToken")?.value;
-        const id = Number(params.id);
+        const id = Number((await params).id);
         const data = (await req.json()) as { quantity: number };
 
         if (!token) {

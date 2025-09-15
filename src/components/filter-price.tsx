@@ -12,6 +12,7 @@ interface Props {
 
 export const FilterPrice: React.FC<Props> = (props) => {
   const { className, value, setValue } = props;
+  console.dir(value)
   return (
     <div className={cn("flex flex-col gap-10", className)}>
       <Title size={"s"}>Цена от и до:</Title>
@@ -35,7 +36,7 @@ export const FilterPrice: React.FC<Props> = (props) => {
       </div>
       <DualRangeSlider
         label={(value) => value}
-        value={value}
+        value={value.length > 0 ? value : [0, 5000]}
         onValueChange={setValue}
         min={0}
         max={5000}

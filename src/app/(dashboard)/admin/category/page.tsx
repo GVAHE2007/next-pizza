@@ -11,7 +11,7 @@ import { Mode } from "@/@types/admin";
 import { categoryAdmin } from "@/app/actions/category-admin";
 import toast from "react-hot-toast";
 
-export default function DashboardPage() {
+export default function DashboardCategoryPage() {
     const [data, setData] = React.useState<Category[]>([])
     const [mode, setMode] = React.useState<Mode>({ mode: "create" })
     React.useEffect(() => {
@@ -30,7 +30,7 @@ export default function DashboardPage() {
         },
     })
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: { category: string }) => {
         try {
             if (mode.mode === "create") {
                 const create = await categoryAdmin({ name: data.category }, "create")
@@ -38,7 +38,9 @@ export default function DashboardPage() {
                     toast.error("sranic ka ur es sarqum")
                     return
                 }
-                toast.success("Category added")
+                else {
+                    toast.success("Category added")
+                }
             }
             else if (mode.mode === "update" && mode.id) {
                 await categoryAdmin({ name: data.category }, "update", mode.id)
@@ -50,7 +52,9 @@ export default function DashboardPage() {
                     toast.error("sra tak product ka")
                     return
                 }
-                toast.success("Category deleted")
+                else {
+                    toast.success("Category deleted")
+                }
             }
 
 

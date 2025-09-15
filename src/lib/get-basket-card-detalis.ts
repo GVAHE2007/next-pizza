@@ -1,5 +1,5 @@
 import { PizzaSize, PizzaType } from "@/@types/pizza";
-import { objPizzaTypes, pizzatypes } from "@/constants/pizza";
+import { objPizzaTypes } from "@/constants/pizza";
 
 export const getBasketCardDetalis = (pizzatypes: PizzaType, pizzaSizes: PizzaSize, ingredients: Array<{ name: string; price: number }>) => {
     const result = [];

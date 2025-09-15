@@ -15,10 +15,10 @@ interface Props {
 
 export const CheckoutBasket: React.FC<Props> = (props) => {
     const { className } = props;
-    const { items, updateProduct, removeProduct, isLoading } = useBasket()
+    const { items, updateProduct, removeProduct } = useBasket()
     return (
 
-        <Card className="w-full">
+        <Card className={cn("w-full", className)}>
             <CardHeader>
                 <CardTitle className="flex justify-between">
                     <span>1.Корзина</span>

@@ -12,7 +12,7 @@ import {
 } from "../ui/sheet";
 import { useBasket } from "@/hooks/basket";
 import { BasketCard } from "./basket-card";
-import { get } from "http";
+
 import { getBasketCardDetalis } from "@/lib/get-basket-card-detalis";
 import { PizzaSize, PizzaType } from "@/@types/pizza";
 import Link from "next/link";

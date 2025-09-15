@@ -1,6 +1,6 @@
 import { PizzaSize, PizzaType } from "@/@types/pizza";
 import { Ingredient, Variation } from "@prisma/client";
-import React from "react";
+
 
 export const calcPizzaPrice = (
     size: PizzaSize,
